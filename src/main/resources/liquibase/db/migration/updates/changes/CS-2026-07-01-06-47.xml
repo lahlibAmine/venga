@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog classpath:/liquibase/config/dbchangelog-4.6.xsd">
+
+<!-- ChangeSet to drop foreign key constraints -->
+    <changeSet id="drop-foreign-keys" author="A.LAHLIB">
+        <dropForeignKeyConstraint baseTableName="origine_emission_entite"
+                                  constraintName="FK_OrigineEmissionEntite_OrigineEmission"
+        />
+        <dropForeignKeyConstraint baseTableName="origine_emission_entite"
+                                  constraintName="FK_OrigineEmissionEntite_Entite_v"
+        />
+    </changeSet>
+
+    <!-- ChangeSet to drop the table -->
+    <changeSet id="drop-table" author="A.LAHLIB">
+        <dropTable tableName="origine_emission_entite"/>
+    </changeSet>
+
+</databaseChangeLog>

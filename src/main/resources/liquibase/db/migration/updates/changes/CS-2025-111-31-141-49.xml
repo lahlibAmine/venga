@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog classpath:/liquibase/config/dbchangelog-4.6.xsd">
+
+    <changeSet author="A.lahlib" id="add-indexes">
+
+        <createIndex indexName="JOURNAL_RAPPROCHEMENT_VENTE_IDX" tableName="journal_rapprochement">
+            <column name="vente_id"/>
+        </createIndex>
+
+        <createIndex indexName="JOURNAL_RAPPROCHEMENT_RECETTE_IDX" tableName="journal_rapprochement">
+            <column name="recette_id"/>
+        </createIndex>
+
+        <createIndex indexName="JOURNAL_RAPPROCHEMENT_STATUT_IDX" tableName="journal_rapprochement">
+            <column name="statut"/>
+        </createIndex>
+
+        <createIndex indexName="VENTE_NUMBL_IDX" tableName="vente">
+            <column name="num_billet"/>
+        </createIndex>
+
+        <createIndex indexName="VENTE_STATUT_IDX" tableName="vente">
+            <column name="statut_vente"/>
+        </createIndex>
+
+        <createIndex indexName="VENTE_ESCALE_ARRIVE_IDX" tableName="vente">
+            <column name="escale_arrivee"/>
+        </createIndex>
+
+        <createIndex indexName="VENTE_ESCALE_DEPART_IDX" tableName="vente">
+            <column name="escale_depart"/>
+        </createIndex>
+
+        <createIndex indexName="VENTE_CLASSPRODUIT_IDX" tableName="vente">
+            <column name="classe_produit"/>
+        </createIndex>
+
+        <createIndex indexName="VENTE_COLLABORATEUR_IDX" tableName="vente">
+            <column name="collaborateur_id"/>
+        </createIndex>
+
+        <createIndex indexName="CODE_IATA_IDX" tableName="vente">
+            <column name="codeiata"/>
+        </createIndex>
+
+        <createIndex indexName="CLASSE_RESERVATION_CODE_IDX" tableName="classe_reservation">
+            <column name="code"/>
+        </createIndex>
+
+        <createIndex indexName="CLASSE_RESERVATION_LIBELLE_IDX" tableName="classe_reservation">
+            <column name="libelle"/>
+        </createIndex>
+
+        <createIndex indexName="ENTITE_NOM_IDX" tableName="entite">
+            <column name="nom"/>
+        </createIndex>
+
+        <createIndex indexName="ENTITE_CODE_IDX" tableName="entite">
+            <column name="code"/>
+        </createIndex>
+
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog classpath:/liquibase/config/dbchangelog-4.6.xsd">
+
+    <changeSet author="Y.NEMLI" id="add imported_primes table">
+        <createTable tableName="imported_primes">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="imported_primes_pkey"/>
+            </column>
+            <column name="date_created" type="DATE"/>
+            <column name="treated_at" type="DATE"/>
+            <column name="nbr_point" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="origine_emission_id" type="BIGINT"/>
+            <column name="segment" type="VARCHAR(64)"/>
+            <column name="classe_produit" type="VARCHAR(64)"/>
+            <column name="schedule_status" type="VARCHAR(64)"/>
+            <column name="processing_status" type="VARCHAR(64)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Y.NEMLI" id="add Origine Emission Foreign Key Constraint">
+        <addForeignKeyConstraint baseColumnNames="origine_emission_id" baseTableName="imported_primes" constraintName="addForeignKeyConstraintOrigineEmissionImportedPrimes" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="origine_emission" validate="true"/>
+    </changeSet>
+
+</databaseChangeLog>

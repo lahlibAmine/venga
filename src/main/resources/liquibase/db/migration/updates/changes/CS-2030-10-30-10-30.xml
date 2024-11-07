@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog classpath:/liquibase/config/dbchangelog-4.6.xsd">
+
+    <changeSet  author="A.lahlib"  id="modifyDataType-varchar">
+        <modifyDataType columnName="motif"
+                        newDataType="varchar(255)"
+                        tableName="vente"/>
+
+        <modifyDataType columnName="motif"
+                        newDataType="varchar(255)"
+                        tableName="recette_brute"/>
+    </changeSet>
+
+</databaseChangeLog>

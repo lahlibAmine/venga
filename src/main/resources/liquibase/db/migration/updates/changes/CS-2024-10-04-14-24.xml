@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog classpath:/liquibase/config/dbchangelog-4.6.xsd">
+
+    <changeSet author="h.ouhammi" id="add list of produit with concours and date debut et fin vente collumn ">
+        <createTable tableName="concours_classe_produit">
+            <column name="concours_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="classe_produit_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <!-- Add foreign key for concours_id -->
+        <addForeignKeyConstraint baseTableName="concours_classe_produit"
+                                 baseColumnNames="concours_id"
+                                 constraintName="fk_concours_classe"
+                                 referencedTableName="concours"
+                                 referencedColumnNames="id"/>
+
+        <!-- Add foreign key for classe_produit_id -->
+        <addForeignKeyConstraint baseTableName="concours_classe_produit"
+                                 baseColumnNames="classe_produit_id"
+                                 constraintName="fk_classe_produit_concours"
+                                 referencedTableName="classe_produit"
+                                 referencedColumnNames="id"/>
+
+        <addColumn tableName="concours">
+            <column name="date_debut_vente" type="DATE">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+
+        <!-- Add dateFinVente column -->
+        <addColumn tableName="concours">
+            <column name="date_fin_vente" type="DATE">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>

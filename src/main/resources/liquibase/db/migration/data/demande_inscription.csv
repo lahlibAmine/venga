@@ -1,0 +1,6 @@
+id,commentaire,date_created,date_demande,date_refusaf,date_refusr,date_validation_adminf,date_validation_rattache,last_updated,statut,collaborateur_id
+1,NULL,current_timestamp,2023-07-12 14:13:09.530848,NULL,NULL,NULL,NULL,current_timestamp,EN_COURS,1
+2,NULL,current_timestamp,2023-07-12 14:13:09.530848,NULL,NULL,NULL,NULL,current_timestamp,EN_COURS,2
+3,NULL,current_timestamp,2023-07-12 14:13:09.530848,NULL,NULL,NULL,NULL,current_timestamp,EN_COURS,3
+4,NULL,current_timestamp,2023-07-12 14:13:09.530848,NULL,NULL,NULL,NULL,current_timestamp,EN_COURS,4
+5,NULL,current_timestamp,2023-07-12 14:13:09.530848,NULL,NULL,NULL,NULL,current_timestamp,EN_COURS,5

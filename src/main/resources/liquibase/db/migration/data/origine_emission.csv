@@ -1,0 +1,5 @@
+id,nom,pays_id,date_created,devise_id
+206898,Maroc,1,current_timestamp,1
+206899,Tunisie,2,current_timestamp,2
+206900,Egypte,3,current_timestamp,3
+206901,Arabie saoudite,4,current_timestamp,4

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog classpath:/liquibase/config/dbchangelog-4.6.xsd">
+
+    <changeSet id="add origine emission in haute Saison " author="Alahlib">
+        <addColumn tableName="haute_saison">
+            <column name="origine_emission_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+        <addForeignKeyConstraint baseTableName="haute_saison"
+                                 baseColumnNames="origine_emission_id"
+                                 referencedTableName="origine_emission"
+                                 referencedColumnNames="id"
+                                 constraintName="fk_origine_emission"
+                                 onDelete="CASCADE"
+                                 onUpdate="CASCADE"/>
+    </changeSet>
+
+</databaseChangeLog>

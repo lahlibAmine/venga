@@ -1,0 +1,5 @@
+id;code_iso;date_created;nom
+1;MAR;current_timestamp;Maroc
+2;TUN;current_timestamp;Tunisie
+3;EGY;current_timestamp;Egypte
+4;KSA;current_timestamp;Arabie saoudite

@@ -1,0 +1,898 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext classpath:/liquibase/config/liquibase-pro-4.6.xsd http://www.liquibase.org/xml/ns/pro classpath:/liquibase/config/liquibase-pro-4.6.xsd http://www.liquibase.org/xml/ns/dbchangelog classpath:/liquibase/config/dbchangelog-4.6.xsd">
+    <changeSet author="Hamza (generated)" id="1688472318106-1">
+        <createTable tableName="utilisateur">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="utilisateur_pkey"/>
+            </column>
+            <column name="active" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cond_general_accepted" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="TIMESTAMP WITH TIME ZONE"/>
+            <column name="login" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="news_letter_accepted" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="VARCHAR(255)"/>
+            <column name="profil" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="refkuser" type="VARCHAR(255)"/>
+            <column name="collaborateur_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-2">
+        <createTable tableName="journal_rapprochement">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="journal_rapprochement_pkey"/>
+            </column>
+            <column name="date" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="TIMESTAMP WITH TIME ZONE"/>
+            <column name="statut" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="recette_id" type="BIGINT"/>
+            <column name="vente_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-3">
+        <createTable tableName="haute_saison">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="haute_saison_pkey"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_debut" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_fin" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="TIMESTAMP WITH TIME ZONE"/>
+            <column name="libelle" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-4">
+        <createTable tableName="pays">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pays_pkey"/>
+            </column>
+            <column name="code_iso" type="VARCHAR(8)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="TIMESTAMP WITH TIME ZONE"/>
+            <column name="nom" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-5">
+        <createTable tableName="classe_produit">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="classe_produit_pkey"/>
+            </column>
+            <column name="code" type="VARCHAR(16)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="TIMESTAMP WITH TIME ZONE"/>
+            <column name="libelle" type="VARCHAR(32)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-6">
+        <createTable tableName="concours">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="concours_pkey"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_debut" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_fin" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="TIMESTAMP WITH TIME ZONE"/>
+            <column name="libelle" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="classe_reservation_id" type="BIGINT"/>
+            <column name="origine_emission_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-7">
+        <createTable tableName="cadeauxba">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="cadeauxba_pkey"/>
+            </column>
+            <column name="code" type="VARCHAR(16)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="last_updated" type="TIMESTAMP WITH TIME ZONE"/>
+            <column name="libelle" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="nbr_point" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="categorie_cadeau_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fournisseur_id" type="BIGINT"/>
+            <column name="origine_emission_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-8">
+        <createTable tableName="origine_emission">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="origine_emission_pkey"/>
+            </column>
+            <column name="date_created" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="date"/>
+            <column name="nbr_point_bienvenue" type="INTEGER"/>
+            <column name="nom" type="VARCHAR(16)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pays_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-9">
+        <createTable tableName="offre">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="offre_pkey"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="TIMESTAMP WITH TIME ZONE"/>
+            <column name="origine_emission_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-10">
+        <createTable tableName="segment">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="segment_pkey"/>
+            </column>
+            <column name="code" type="VARCHAR(16)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="escale_depart" type="VARCHAR(16)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="escale_destination" type="VARCHAR(16)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="TIMESTAMP WITH TIME ZONE"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-11">
+        <createTable tableName="entite">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="entite_pkey"/>
+            </column>
+            <column name="adresse" type="VARCHAR(255)"/>
+            <column name="categorie" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code" type="VARCHAR(16)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code_postal" type="VARCHAR(16)"/>
+            <column name="date_created" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(64)"/>
+            <column name="fax" type="VARCHAR(16)"/>
+            <column name="last_updated" type="TIMESTAMP WITH TIME ZONE"/>
+            <column name="nom" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="telephone" type="VARCHAR(16)"/>
+            <column name="origine_emission_id" type="BIGINT"/>
+            <column name="parent_id" type="BIGINT"/>
+            <column name="ville_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-12">
+        <createTable tableName="ville">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="ville_pkey"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="TIMESTAMP WITH TIME ZONE"/>
+            <column name="nom" type="VARCHAR(16)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pays_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-13">
+        <createTable tableName="fournisseur">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="fournisseur_pkey"/>
+            </column>
+            <column name="adresse" type="VARCHAR(255)"/>
+            <column name="date_created" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(64)"/>
+            <column name="last_updated" type="TIMESTAMP WITH TIME ZONE"/>
+            <column name="nom" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="telephone" type="VARCHAR(16)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-14">
+        <createTable tableName="collaborateur">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="collaborateur_pkey"/>
+            </column>
+            <column name="adresse" type="VARCHAR(255)"/>
+            <column name="categorie" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="civilite" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code_postal" type="VARCHAR(16)"/>
+            <column name="credit" type="INTEGER"/>
+            <column name="date_created" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_naissance" type="date"/>
+            <column name="debit" type="INTEGER"/>
+            <column name="email" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fonction" type="VARCHAR(64)"/>
+            <column name="last_updated" type="TIMESTAMP WITH TIME ZONE"/>
+            <column name="mobile" type="VARCHAR(32)"/>
+            <column name="nom" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="prenom" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="signature" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="solde_point" type="INTEGER"/>
+            <column name="telephone" type="VARCHAR(32)"/>
+            <column name="entite_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-15">
+        <createTable tableName="bon_commande">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="bon_commande_pkey"/>
+            </column>
+            <column name="date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="date_created" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="etat" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="nbr_point_credit" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="reference" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="agent_commercial_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-16">
+        <createTable tableName="classe_reservation">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="classe_reservation_pkey"/>
+            </column>
+            <column name="code" type="VARCHAR(16)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="TIMESTAMP WITH TIME ZONE"/>
+            <column name="libelle" type="VARCHAR(32)"/>
+            <column name="classe_produit_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-17">
+        <createTable tableName="categorie_cadeau">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="categorie_cadeau_pkey"/>
+            </column>
+            <column name="code" type="VARCHAR(16)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="TIMESTAMP WITH TIME ZONE"/>
+            <column name="libelle" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-18">
+        <createTable tableName="demande_inscription">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="demande_inscription_pkey"/>
+            </column>
+            <column name="commentaire" type="VARCHAR(255)"/>
+            <column name="date_created" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_demande" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_refusaf" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="date_refusr" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="date_validation_adminf" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="date_validationr" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="date_validation_rattache" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="last_updated" type="TIMESTAMP WITH TIME ZONE"/>
+            <column name="statut" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="collaborateur_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-19">
+        <addUniqueConstraint columnNames="login" constraintName="uk_18vwp4resqussqmlpqnymfqxk" tableName="utilisateur"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-20">
+        <addUniqueConstraint columnNames="collaborateur_id" constraintName="uk_32e4su5co6ncbffymti1co622" tableName="utilisateur"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-21">
+        <addUniqueConstraint columnNames="refkuser" constraintName="uk_l2iptkt8rdgudjsomw5v9qv6n" tableName="utilisateur"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-22">
+        <addUniqueConstraint columnNames="email" constraintName="uk_rma38wvnqfaf66vvmi57c71lo" tableName="utilisateur"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-23">
+        <addUniqueConstraint columnNames="recette_id" constraintName="uk_1c3epqqntitdb4uajru2f1hf5" tableName="journal_rapprochement"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-24">
+        <addUniqueConstraint columnNames="vente_id" constraintName="uk_8lcpbfwe4yg1ovy9q757fcmfa" tableName="journal_rapprochement"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-25">
+        <addUniqueConstraint columnNames="libelle" constraintName="uk_2ihk47e0hr3fjgnnm2ue4ym3h" tableName="haute_saison"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-26">
+        <addUniqueConstraint columnNames="nom" constraintName="uk_6ajgh321y23jmclan9ulbi4oa" tableName="pays"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-27">
+        <addUniqueConstraint columnNames="code_iso" constraintName="uk_jppuup1fkte2ygqu9mdifr4t4" tableName="pays"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-28">
+        <addUniqueConstraint columnNames="code" constraintName="uk_73ha9n6utmsfyk0ccqpvek62u" tableName="classe_produit"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-29">
+        <addUniqueConstraint columnNames="libelle" constraintName="uk_ap1nfle2adrhdwtr1vfa8ryt5" tableName="concours"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-30">
+        <addUniqueConstraint columnNames="code" constraintName="uk_cftigw7fu72nfglp37mag54e0" tableName="cadeauxba"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-31">
+        <addUniqueConstraint columnNames="nom" constraintName="uk_d6y1u0gqqkcc22796o63xg78c" tableName="origine_emission"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-32">
+        <addUniqueConstraint columnNames="origine_emission_id" constraintName="uk_dlo9l364ap736rkh2hcf1pg4e" tableName="offre"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-33">
+        <addUniqueConstraint columnNames="code" constraintName="uk_guaq9prmvyn2obgvgilc0n0km" tableName="segment"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-34">
+        <addUniqueConstraint columnNames="code" constraintName="uk_h5ck8sfkkrhqm8to7g476ixmf" tableName="entite"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-35">
+        <addUniqueConstraint columnNames="nom" constraintName="uk_kqsnkr3godlmom0rvthg5dtw0" tableName="ville"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-36">
+        <addUniqueConstraint columnNames="nom" constraintName="uk_mjdyhrnlr68a1m6jf74l7x2us" tableName="fournisseur"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-37">
+        <addUniqueConstraint columnNames="code" constraintName="uk_nrp4nsgyfsh4imwgo0qpt1t8g" tableName="collaborateur"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-38">
+        <addUniqueConstraint columnNames="reference" constraintName="uk_q3l037p5je5o9n0n3bdwc06re" tableName="bon_commande"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-39">
+        <addUniqueConstraint columnNames="code" constraintName="uk_sgb85g8kx42201hg7mmw0wrfe" tableName="classe_reservation"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-40">
+        <addUniqueConstraint columnNames="code" constraintName="uk_xx9kgkmw76yh9gvt63btluaw" tableName="categorie_cadeau"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-41">
+        <addUniqueConstraint columnNames="collaborateur_id" constraintName="uk_yjnqfqd4lvfuuthnchqovfgc" tableName="demande_inscription"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-42">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="primary_sequence" startValue="10000"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-43">
+        <createTable tableName="image">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="image_pkey"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="image_data" type="OID"/>
+            <column name="last_updated" type="TIMESTAMP WITH TIME ZONE"/>
+            <column name="url" type="VARCHAR(255)"/>
+            <column name="offre_id" type="BIGINT"/>
+            <column name="nom_fichier" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-44">
+        <createTable tableName="ligne_commande">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="ligne_commande_pkey"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="TIMESTAMP WITH TIME ZONE"/>
+            <column name="quantite" type="INTEGER"/>
+            <column name="bon_commande_id" type="BIGINT"/>
+            <column name="cadeauxba_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-45">
+        <createTable tableName="notification">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="notification_pkey"/>
+            </column>
+            <column name="consulte" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="TIMESTAMP WITH TIME ZONE"/>
+            <column name="objet" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="utilisateur_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-46">
+        <createTable tableName="opperation">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="opperation_pkey"/>
+            </column>
+            <column name="credit" type="INTEGER"/>
+            <column name="date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="date_created" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="debit" type="INTEGER"/>
+            <column name="last_updated" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="solde" type="INTEGER"/>
+            <column name="bon_commande_id" type="BIGINT"/>
+            <column name="vente_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-47">
+        <createTable tableName="prime">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="prime_pkey"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="TIMESTAMP WITH TIME ZONE"/>
+            <column name="nbr_point" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="classe_produit_id" type="BIGINT"/>
+            <column name="origine_emission_id" type="BIGINT"/>
+            <column name="segment_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-48">
+        <createTable tableName="programme">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="programme_pkey"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_debut" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_fin" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="TIMESTAMP WITH TIME ZONE"/>
+            <column name="reconduction_solde" type="FLOAT4">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-49">
+        <createTable tableName="recette_brute">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="recette_brute_pkey"/>
+            </column>
+            <column name="codeiata" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_emission" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="date_transport" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="escale_arrivee" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="escale_depart" type="VARCHAR(8)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="TIMESTAMP WITH TIME ZONE"/>
+            <column name="num_billet" type="VARCHAR(16)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="origine_emission" type="VARCHAR(16)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="recette_integre" type="BOOLEAN"/>
+            <column name="recette_rapproche" type="BOOLEAN"/>
+            <column name="signature_agent" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-50">
+        <createTable tableName="validation_inscription">
+            <column name="demande_inscription_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="validation_inscription_pkey"/>
+            </column>
+            <column name="utilisateur_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="validation_inscription_pkey"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-51">
+        <createTable tableName="vente">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="vente_pkey"/>
+            </column>
+            <column name="cie_titre" type="VARCHAR(32)"/>
+            <column name="cie_vol" type="VARCHAR(32)"/>
+            <column name="classe_reservation" type="VARCHAR(16)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="codeiata" type="VARCHAR(16)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_emission" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="date_transport" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="escale_arrivee" type="VARCHAR(8)"/>
+            <column name="escale_depart" type="VARCHAR(8)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="TIMESTAMP WITH TIME ZONE"/>
+            <column name="nbr_point" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="num_billet" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="num_coupon" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="signature_agent" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="statut_billet" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="vente_intgre" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="vente_rapproche" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="collaborateur_id" type="BIGINT"/>
+            <column name="origine_emission_id" type="BIGINT"/>
+            <column name="classe_produit" type="VARCHAR(16)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="montant_brut" type="INTEGER"/>
+            <column name="office_id" type="VARCHAR(255)"/>
+            <column name="pnr" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-52">
+        <addForeignKeyConstraint baseColumnNames="collaborateur_id" baseTableName="vente" constraintName="fk13h2v8r4xfr5evjdr5ayism1r" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="collaborateur" validate="true"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-53">
+        <addForeignKeyConstraint baseColumnNames="agent_commercial_id" baseTableName="bon_commande" constraintName="fk145tyig0v9l7r08dx8d5hx0ks" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="utilisateur" validate="true"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-54">
+        <addForeignKeyConstraint baseColumnNames="utilisateur_id" baseTableName="notification" constraintName="fk1e85ddpswdf3uq1oaklnjiucf" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="utilisateur" validate="true"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-55">
+        <addForeignKeyConstraint baseColumnNames="vente_id" baseTableName="journal_rapprochement" constraintName="fk4lk1l19j7gem7nlgwnl3stpxs" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="vente" validate="true"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-56">
+        <addForeignKeyConstraint baseColumnNames="segment_id" baseTableName="prime" constraintName="fk4uehecq057v7wfs0fe1ir7jlw" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="segment" validate="true"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-57">
+        <addForeignKeyConstraint baseColumnNames="pays_id" baseTableName="ville" constraintName="fk5ak72iyy65hfya4frs9pkprin" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="pays" validate="true"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-58">
+        <addForeignKeyConstraint baseColumnNames="origine_emission_id" baseTableName="prime" constraintName="fk7gyq8pdyyv8d0k2d8pv3omltq" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="origine_emission" validate="true"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-59">
+        <addForeignKeyConstraint baseColumnNames="fournisseur_id" baseTableName="cadeauxba" constraintName="fk7qgew632qu4j7qfni3h7usrvt" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="fournisseur" validate="true"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-60">
+        <addForeignKeyConstraint baseColumnNames="offre_id" baseTableName="image" constraintName="fk90n2uyhoho7ci4fod32hikjwc" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="offre" validate="true"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-61">
+        <addForeignKeyConstraint baseColumnNames="classe_produit_id" baseTableName="prime" constraintName="fk9bbf3iull0gqo72xk4v8brh5v" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="classe_produit" validate="true"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-62">
+        <addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="entite" constraintName="fkaa80hvuedatqw1j5q3s2suj2j" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="entite" validate="true"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-63">
+        <addForeignKeyConstraint baseColumnNames="origine_emission_id" baseTableName="vente" constraintName="fkbm7gyg9vn8e7b2nar9m961exb" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="origine_emission" validate="true"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-64">
+        <addForeignKeyConstraint baseColumnNames="vente_id" baseTableName="opperation" constraintName="fkbyxljap2wow0ysb9ys5v14i0t" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="vente" validate="true"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-65">
+        <addForeignKeyConstraint baseColumnNames="bon_commande_id" baseTableName="opperation" constraintName="fkdmh3v84hsx8qyj398m6iixdwv" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="bon_commande" validate="true"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-66">
+        <addForeignKeyConstraint baseColumnNames="collaborateur_id" baseTableName="utilisateur" constraintName="fkekrq1sv1petcg5pti28uk5u1q" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="collaborateur" validate="true"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-67">
+        <addForeignKeyConstraint baseColumnNames="origine_emission_id" baseTableName="cadeauxba" constraintName="fkewhl6sq3p2um23r3486utddwk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="origine_emission" validate="true"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-68">
+        <addForeignKeyConstraint baseColumnNames="cadeauxba_id" baseTableName="ligne_commande" constraintName="fkfeujqqkchqbk3vwafv1e111dv" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="cadeauxba" validate="true"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-69">
+        <addForeignKeyConstraint baseColumnNames="origine_emission_id" baseTableName="entite" constraintName="fkhsvr8pi8mrwqr26mskw733hmn" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="origine_emission" validate="true"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-70">
+        <addForeignKeyConstraint baseColumnNames="classe_produit_id" baseTableName="classe_reservation" constraintName="fkhtwe1oa72ogll77bccepycfdv" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="classe_produit" validate="true"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-71">
+        <addForeignKeyConstraint baseColumnNames="collaborateur_id" baseTableName="demande_inscription" constraintName="fkilt3sqk5uibjgj32s9mjfkl6e" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="collaborateur" validate="true"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-72">
+        <addForeignKeyConstraint baseColumnNames="ville_id" baseTableName="entite" constraintName="fkjmkf620t0opcv18n62di17grl" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="ville" validate="true"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-73">
+        <addForeignKeyConstraint baseColumnNames="entite_id" baseTableName="collaborateur" constraintName="fkjsnkuu19dk5twlmhxjy6f39cd" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="entite" validate="true"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-74">
+        <addForeignKeyConstraint baseColumnNames="utilisateur_id" baseTableName="validation_inscription" constraintName="fkjypq02rq6suueytxmrwg8lfuk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="utilisateur" validate="true"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-75">
+        <addForeignKeyConstraint baseColumnNames="pays_id" baseTableName="origine_emission" constraintName="fkkqm4txdvgv05y21x7xb37pyb0" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="pays" validate="true"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-76">
+        <addForeignKeyConstraint baseColumnNames="bon_commande_id" baseTableName="ligne_commande" constraintName="fkl8ujhw1x77cm97npbs0cx9tmu" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="bon_commande" validate="true"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-77">
+        <addForeignKeyConstraint baseColumnNames="classe_reservation_id" baseTableName="concours" constraintName="fkmq00lxwk9rf8vjqsna1xguafd" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="classe_reservation" validate="true"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-78">
+        <addForeignKeyConstraint baseColumnNames="origine_emission_id" baseTableName="offre" constraintName="fko1cxby1av4qkan09fsx1iorpn" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="origine_emission" validate="true"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-79">
+        <addForeignKeyConstraint baseColumnNames="categorie_cadeau_id" baseTableName="cadeauxba" constraintName="fkply8rmi0779s7ujiwxido6h4u" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="categorie_cadeau" validate="true"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-80">
+        <addForeignKeyConstraint baseColumnNames="demande_inscription_id" baseTableName="validation_inscription" constraintName="fkq0hebblmm1hlasbhrkarg2be" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="demande_inscription" validate="true"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-81">
+        <addForeignKeyConstraint baseColumnNames="recette_id" baseTableName="journal_rapprochement" constraintName="fkq2n7jedojhq9y3j1faaw84ahh" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="recette_brute" validate="true"/>
+    </changeSet>
+    <changeSet author="Hamza (generated)" id="1688472318106-82">
+        <addForeignKeyConstraint baseColumnNames="origine_emission_id" baseTableName="concours" constraintName="fktj8harjn8jj0vail2penfqepk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="origine_emission" validate="true"/>
+    </changeSet>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-07-01-04-57.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-07-01-05-12.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-07-01-06-01.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-07-01-06-48.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-07-01-06-44.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-07-02-09-52.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-07-02-14-11.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-07-02-16-03.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-07-08-12-28.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-07-08-17-28.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-07-15-13-28.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-07-15-14-28.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-07-15-14-30.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-07-16-14-30.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-07-17-14-30.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-07-18-9-30.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-07-18-12-12.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-07-08-18-28.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-07-24-30-52.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-07-24-12-12.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-07-24-05-01.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-07-29-13-28.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-07-29-29-28.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-07-29-29-30.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-07-30-29-30.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-07-30-12-30.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-07-31-05-01.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-07-31-05-02.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-09-13-13-28.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-09-13-29-30.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-09-13-30-52.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-09-13-29-90.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-09-14-13-28.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-09-13-50-28.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-09-30-13-28.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-09-11-10-15.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-09-13-14-21.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-09-18-188-12.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-09-29-112-123.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-10-19-29-30.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-10-30-10-25.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-10-30-10-26.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-10-30-10-27.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-10-30-10-29.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-10-30-10-30.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-10-23-06-48.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-10-31-14-31.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-12-17-12-60.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-12-17-12-61.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-10-31-35-21.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-10-25-39-90.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-12-17-12-62.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-12-17-12-63.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-12-17-12-64.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-07-16-11-12.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2024-14-14-14-64.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2025-10-30-10-29.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2025-10-30-11-29.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2025-111-31-141-49.xml"/>
+    <include file="liquibase/db/migration/updates/CS1-Release.0.0.1-pays.xml"/>
+    <include file="liquibase/db/migration/updates/CS2-Release.0.0.1-segment.xml"/>
+    <include file="liquibase/db/migration/updates/CS13-Release.0.0.1-devise.xml"/>
+    <include file="liquibase/db/migration/updates/CS3-Release.0.0.1-origine_emission.xml"/>
+    <include file="liquibase/db/migration/updates/CS4-Release.0.0.1-ville.xml"/>
+    <include file="liquibase/db/migration/updates/CS5-Release.0.0.1-classe_produit.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-07-16-11-190.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2026-179-119-169-549.xml"/>
+   <!-- <include file="liquibase/db/migration/updates/changes/CS-2024-17-11-16-11.xml"/>-->
+    <include file="liquibase/db/migration/updates/changes/CS-2023-07-29-29-35.xml"/>
+    <include file="liquibase/db/migration/updates/CS6-Release.0.0.1-entitie.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2024-337-23-14-70.xml"/>
+    <include file="liquibase/db/migration/updates/CS7-Release.0.0.1-prime.xml"/>
+    <include file="liquibase/db/migration/updates/CS8-Release.0.0.1-classe_reservation.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-07-01-04-28.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-07-02-10-45.xml"/>
+    <include file="liquibase/db/migration/updates/CS9-Release.0.0.1-collaborateur.xml"/>
+    <include file="liquibase/db/migration/updates/CS10-Release.0.0.1-demande-inscription.xml"/>
+    <include file="liquibase/db/migration/updates/CS11-Release.0.0.1-utilisateur.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2025-141-141-141-641.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2026-07-01-06-44.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2026-07-01-06-47.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2027-141-141-141-841.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2027-141-141-141-849.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2029-07-01-06-5515.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2028-07-24-12-12.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2024-13-50-12-21.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2029-07-01-06-5516.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2030-07-01-04-29.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2030-10-30-10-30.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2029-07-01-06-5517.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2029-07-01-06-5518.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2030-10-30-10-29.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2030-07-02-16-03.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2031-07-01-04-39.xml"/>
+    <include file="liquibase/db/migration/updates/CS14-Release.0.0.1-add-new-segment.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2031-07-01-04-40.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2031-07-01-04-29.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2031-07-01-04-30.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2031-07-08-04-39.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2031-07-08-04-40.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2031-07-08-04-42.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2060-07-02-16-03.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2060-07-02-16-04.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2060-07-02-16-05.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2060-07-02-16-06.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2024-05-06-14-03.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2024-05-09-17-04.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2060-07-02-16-07.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2060-07-02-16-08.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2075-111-31-141-49.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2024-05-17-10-25.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2024-05-20-11-15.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2024-05-20-13-14.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2060-07-02-16-09.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2075-111-31-141-50.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2027-141-141-141-850.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2069-07-01-06-551.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2075-111-31-141-51.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2075-111-31-141-52.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2023-10-31-35-26.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2024-05-28-14-29.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2026-07-01-04-57.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2027-141-141-141-890.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2029-07-01-06-5589.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2027-141-141-141-880.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2029-07-01-06-5590.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2077-111-31-141-52.xml"/>
+    <include file="liquibase/db/migration/updates/CS15-Release.0.0.1-new_ville.xml"/>
+    <include file="liquibase/db/migration/updates/CS16-Release.0.0.1.updateEmail.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2024-07-18-14-21.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2024-07-19-11-10.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2024-08-16-11-45.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2024-08-30-10-53.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2027-141-141-141-881.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2029-07-01-06-5591.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2024-10-23-10-32.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2024-10-04-10-07.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2024-10-04-14-24.xml"/>
+    <include file="liquibase/db/migration/updates/changes/CS-2024-10-08-14-53.xml"/>
+</databaseChangeLog>
+

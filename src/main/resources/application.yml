@@ -1,0 +1,3 @@
+spring.application.name: ms-venga-business
+spring.config.import: optional:configserver:${CONF_URL:http://localhost}:8012/
+spring.cloud.config.profile: ${ENV:rec}

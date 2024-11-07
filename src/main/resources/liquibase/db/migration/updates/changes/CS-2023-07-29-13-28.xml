@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog classpath:/liquibase/config/dbchangelog-4.6.xsd">
+
+    <changeSet author="A.lahlib" id="add-collumn-recette">
+        <addColumn tableName="recette_brute">
+            <column name="cieTitre"
+                    type="VARCHAR(255)"/>
+            <column name="num_coupon"
+                    type="VARCHAR(255)"/>
+            <column name="cieVol"
+                    type="VARCHAR(255)"/>
+            <column name="classe_reservation"
+                    type="VARCHAR(255)"/>
+            <column name="classe_produit"
+                    type="VARCHAR(255)"/>
+            <column name="montant_brut"
+                    type="NUMBER"/>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>

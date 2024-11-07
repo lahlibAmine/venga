@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog classpath:/liquibase/config/dbchangelog-4.6.xsd">
+
+    <changeSet id="createAuditUserActionTable" author="A.Lahlib">
+
+        <createTable tableName="audit_user_action">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="audited_object_name" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="audited_object_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="audited_field_name" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="old_field_value" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="new_field_value" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="audited_action" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="username" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false" />
+            </column>
+            <column name="last_updated" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+
+        <addUniqueConstraint tableName="audit_user_action" columnNames="id"/>
+
+        <addForeignKeyConstraint baseTableName="audit_user_action" baseColumnNames="user_id"
+                                 referencedTableName="utilisateur" referencedColumnNames="id"
+                                 constraintName="fk_user"/>
+
+    </changeSet>
+
+
+</databaseChangeLog>

@@ -1,0 +1,5 @@
+id,devise,date_created
+1,MAD,current_timestamp
+2,TND,current_timestamp
+3,EGP,current_timestamp
+4,SAR,current_timestamp

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog classpath:/liquibase/config/dbchangelog-4.6.xsd">
+
+    <changeSet id="create_collaborateur_entite_table" author="you">
+        <createTable tableName="collaborateur_entite">
+            <column name="collaborateur_id" type="bigint"/>
+            <column name="entite_id" type="bigint">
+            <!-- Define primary key constraint -->
+            <constraints primaryKey="true" primaryKeyName="pk_collaborateur_entite"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="add_foreign_keys_to_collaborateur_entite" author="you">
+        <!-- Add foreign key constraints -->
+        <addForeignKeyConstraint baseTableName="collaborateur_entite" baseColumnNames="collaborateur_id"
+                                 constraintName="fk_collaborateur_entite_collaborateur"
+                                 referencedTableName="collaborateur" referencedColumnNames="id"
+                                 onDelete="CASCADE" onUpdate="CASCADE"/>
+        <addForeignKeyConstraint baseTableName="collaborateur_entite" baseColumnNames="entite_id"
+                                 constraintName="fk_collaborateur_entite_entite"
+                                 referencedTableName="entite" referencedColumnNames="id"
+                                 onDelete="CASCADE" onUpdate="CASCADE"/>
+    </changeSet>
+
+
+</databaseChangeLog>

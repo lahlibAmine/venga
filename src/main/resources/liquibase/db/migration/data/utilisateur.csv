@@ -1,0 +1,6 @@
+ id,active,cond_general_accepted,date_created,email,last_updated,login,news_letter_accepted,password,profil,refkuser,collaborateur_id
+ 1,true,false,current_timestamp,nkanbou@royalairmaroc.com,current_timestamp,nkanbou@royalairmaroc.com,false,$2a$10$RbO0KwDGlYklzJ5S1A8XduZaScCvepMR25nC.6Qd9akEnJsCUfB6m,RATTACHE_COMMERCIAL,ded075ad-e156-4290-a0c2-3b88e7fedff9,1991
+ 2,true,false,current_timestamp,Kismail@royalairmaroc.com,current_timestamp,Kismail@royalairmaroc.com,false,$2a$10$YNuRxAY7V9sn1AR1QvMorumRvXYwoOTwD6mnowDx4n25wqBj7YYKW,ADMIN_FONCTIONNEL,d4e4e891-bd96-4043-9aba-2d218b63d0d4,1992
+ 3,true,false,current_timestamp,ahmedAgent@gmail.com,current_timestamp,ahmedAgent@gmail.com,false,$2a$10$RbO0KwDGlYklzJ5S1A8XduZaScCvepMR25nC.6Qd9akEnJsCUfB6m,REPRESENTANT,e18aa230-9158-45a7-911c-be2c817f54e6,1993
+ 4,true,false,current_timestamp,testamine881@gmail.com,current_timestamp,testamine881@gmail.com,false,$2a$10$YNuRxAY7V9sn1AR1QvMorumRvXYwoOTwD6mnowDx4n25wqBj7YYKW,SUPER_ADMIN,29b68664-014d-4882-a4b6-34cbbc14719b,4
+ 5,true,false,current_timestamp,alahlib@royalairmaroc.com,current_timestamp,alahlib@royalairmaroc.com,false,$2a$10$YNuRxAY7V9sn1AR1QvMorumRvXYwoOTwD6mnowDx4n25wqBj7YYKW,SUPER_ADMIN,500a8782-9260-4bd2-89cc-e17813dcf1ec,1994

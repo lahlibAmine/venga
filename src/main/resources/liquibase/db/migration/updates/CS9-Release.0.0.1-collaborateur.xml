@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog classpath:/liquibase/config/dbchangelog-4.6.xsd">
+
+<changeSet author="A.lahlib" id="add-collaborateur">
+    <loadData file="liquibase/db/migration/data/collaborateur.csv" separator="," tableName="collaborateur"  >
+        <column name="id" type="NUMERIC"/>
+        <column name="adresse" type="STRING"/>
+        <column name="categorie" type="STRING"/>
+        <column name="civilite" type="STRING"/>
+        <column name="code" type="STRING"/>
+        <column name="code_postal" type="STRING"/>
+        <column name="date_created" type="DATE"/>
+        <column name="date_naissance" type="DATE"/>
+        <column name="email" type="STRING"/>
+        <column name="fonction" type="STRING"/>
+        <column name="last_updated" type="DATE"/>
+        <column name="mobile" type="STRING"/>
+        <column name="nom" type="STRING"/>
+        <column name="prenom" type="STRING"/>
+        <column name="signature" type="STRING"/>
+        <column name="solde_point" type="NUMERIC"/>
+        <column name="telephone" type="STRING"/>
+        <column name="entite_id" type="NUMERIC"/>
+        <column name="chiffre_affaire" type="NUMERIC"/>
+
+
+    </loadData>
+</changeSet>
+
+</databaseChangeLog>

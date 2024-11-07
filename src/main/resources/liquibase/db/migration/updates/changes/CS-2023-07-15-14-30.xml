@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog classpath:/liquibase/config/dbchangelog-4.6.xsd">
+
+    <changeSet author="A.lahlib" id="16884723182212-55">
+        <addForeignKeyConstraint baseColumnNames="devise_id" baseTableName="origine_emission" constraintName="fk4lk1l19j7gem7nlgwnl3syyuztyqis" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="devise" validate="true"/>
+    </changeSet>
+
+</databaseChangeLog>

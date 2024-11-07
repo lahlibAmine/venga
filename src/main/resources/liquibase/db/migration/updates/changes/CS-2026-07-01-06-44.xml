@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog classpath:/liquibase/config/dbchangelog-4.6.xsd">
+
+    <changeSet author="A.lahlib" id="create view journal Rapprochement">
+        <sql>
+            create MATERIALIZED  VIEW journal_rapprochement_view AS
+            SELECT
+                ROW_NUMBER() OVER (ORDER BY rb.num_billet) AS id,
+                    rb.num_billet AS num_billet,
+                COALESCE(v.statut_vente, 'REJETE') AS statut_vente,
+                CASE
+                    WHEN COALESCE(v.statut_vente, 'REJETE') = 'REJETE' THEN COALESCE(r.count_recette, v.nbr_coupon_non_rapprocher)
+                    ELSE v.nbr_coupon
+                    END AS nbr_coupon,
+                CASE
+                    WHEN COALESCE(v.statut_vente, 'REJETE') = 'REJETE' THEN COALESCE(r.count_recette, v.nbr_coupon_non_rapprocher)
+                    ELSE v.nbr_coupon_non_rapprocher
+                    END AS nbr_coupon_non_rapprocher,
+                COALESCE(v.vente_rapproche , false) AS vente_rapproche,
+                MAX(CAST(rb.last_updated AS DATE)) AS last_updated
+            FROM recette_brute rb
+                     LEFT JOIN vente v ON v.num_billet = rb.num_billet AND v.vente_intgre = true
+                     LEFT JOIN (
+                SELECT num_billet, COUNT(*) AS count_recette
+                FROM recette_brute
+                WHERE recette_integre = true
+                GROUP BY num_billet
+            ) r ON r.num_billet = rb.num_billet
+            WHERE rb.recette_integre = true
+            GROUP BY
+                rb.num_billet, v.nbr_coupon, v.nbr_coupon_non_rapprocher, v.statut_vente, v.vente_rapproche, r.count_recette
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

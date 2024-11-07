@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog classpath:/liquibase/config/dbchangelog-4.6.xsd">
+
+    <changeSet author="A.lahlib" id="insert Classe Reservation">
+        <sql>INSERT INTO classe_reservation (id,code,date_created,last_updated,libelle,classe_produit_id) VALUES
+            (207883,'Y','2024-01-17 09:39:08.987',NULL,NULL,207885);
+        INSERT INTO classe_reservation (id,code,date_created,last_updated,libelle,classe_produit_id) VALUES
+            (207884,'Z','2024-01-17 09:39:08.987',NULL,NULL,207889);
+
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog classpath:/liquibase/config/dbchangelog-4.6.xsd">
+
+<changeSet author="A.lahlib" id="add-demande_inscription">
+    <loadData file="liquibase/db/migration/data/demande_inscription.csv" separator="," tableName="demande_inscription"  >
+        <column name="id" type="NUMERIC"/>
+        <column name="commentaire" type="STRING"/>
+        <column name="date_created" type="DATE"/>
+        <column name="date_demande" type="DATE"/>
+        <column name="date_refusaf" type="DATE"/>
+        <column name="date_refusr" type="DATE"/>
+        <column name="date_validation_adminf" type="DATE"/>
+        <column name="date_validation_rattache" type="DATE"/>
+        <column name="last_updated" type="DATE"/>
+        <column name="statut" type="STRING"/>
+        <column name="collaborateur_id" type="NUMERIC"/>
+
+    </loadData>
+</changeSet>
+
+</databaseChangeLog>

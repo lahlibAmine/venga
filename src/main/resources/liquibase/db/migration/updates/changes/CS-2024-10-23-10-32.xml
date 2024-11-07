@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog classpath:/liquibase/config/dbchangelog-4.6.xsd">
+
+    <changeSet id="create table job info" author="amine">
+
+        <!-- Precondition to check if the table does not exist -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="job_info"/>
+            </not>
+        </preConditions>
+
+        <createSequence sequenceName="primary_sequence" startValue="10000" incrementBy="1"/>
+
+        <createTable tableName="job_info">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" />
+            </column>
+
+            <column name="file_name" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+
+            <column name="last_processed_line" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="start_day" type="TIMESTAMP"/>
+            <column name="end_day" type="TIMESTAMP"/>
+        </createTable>
+
+        <addAutoIncrement columnName="id" tableName="job_info"
+                          incrementBy="1" startWith="10000" />
+    </changeSet>
+
+</databaseChangeLog>

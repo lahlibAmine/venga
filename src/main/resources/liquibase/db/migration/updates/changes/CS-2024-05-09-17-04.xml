@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog classpath:/liquibase/config/dbchangelog-4.6.xsd">
+
+    <changeSet author="Y.NEMLI" id="add uniqueness constraint to imported_prime table">
+            <sql>CREATE UNIQUE INDEX idx_unique_imported_prime
+                ON imported_primes (classe_produit, origine_emission_id, segment);
+            </sql>
+    </changeSet>
+
+</databaseChangeLog>

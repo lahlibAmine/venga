@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog classpath:/liquibase/config/dbchangelog-4.6.xsd">
+
+<changeSet author="o.marnini" id="add-response">
+    <loadData file="liquibase/db/migration/data/entite.csv" separator="," tableName="ENTITE"  >
+        <column name="id" type="NUMERIC"/>
+        <column name="nom" type="STRING"/>
+        <column name="telephone" type="STRING"/>
+        <column name="adresse" type="STRING"/>
+        <column name="ville_id" type="NUMERIC"/>
+        <column name="date_created" type="DATE"/>
+    </loadData>
+</changeSet>
+
+</databaseChangeLog>

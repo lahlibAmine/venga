@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog classpath:/liquibase/config/dbchangelog-4.6.xsd">
+
+<changeSet author="o.marnini" id="add-response">
+    <loadData file="liquibase/db/migration/data/add_new_segment.csv" separator="," tableName="SEGMENT"  >
+        <column name="ID" type="NUMERIC"/>
+        <column name="ESCALE_DEPART" type="STRING"/>
+        <column name="ESCALE_DESTINATION" type="STRING"/>
+        <column name="SEGMENT" type="STRING"/>
+    </loadData>
+</changeSet>
+
+</databaseChangeLog>

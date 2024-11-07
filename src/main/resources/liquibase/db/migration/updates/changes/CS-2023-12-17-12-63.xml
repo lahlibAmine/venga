@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog classpath:/liquibase/config/dbchangelog-4.6.xsd">
+
+    <changeSet id="create-origine-emission-entite-join-table" author="A.LAHLIB">
+        <createTable tableName="origine_emission_entite">
+            <column name="origine_emission_id" type="bigint">
+                <constraints primaryKey="true" foreignKeyName="FK_OrigineEmissionEntite_OrigineEmission"/>
+            </column>
+            <column name="entite_id" type="bigint">
+                <constraints primaryKey="true" foreignKeyName="FK_OrigineEmissionEntite_Entite"/>
+            </column>
+            <column name="nbr_point_bienvenue" type="integer"/>
+        </createTable>
+    </changeSet>
+
+
+</databaseChangeLog>

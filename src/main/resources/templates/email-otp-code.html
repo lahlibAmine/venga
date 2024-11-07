@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Compiled with Bootstrap Email version: 1.3.1 -->
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="x-apple-disable-message-reformatting">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .div {
+            background-color: #fff;
+            display: flex;
+            max-width: 599px;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .div-2 {
+            background-color: #fff;
+            display: flex;
+            width: 100%;
+            padding-bottom: 32px;
+            flex-direction: column;
+        }
+        .div-3 {
+            position: relative;
+            min-height: 190px;
+            align-items: start;
+            padding: 20px 0px 0px 30px;
+            margin : 10px 10px 10px 10px;
+        }
+        .img-2 {
+            position: relative;
+            aspect-ratio: 1.44;
+            object-fit: contain;
+            object-position: center;
+            width: 130px;
+            overflow: hidden;
+            max-width: 100%;
+            z-index: 9;
+            margin-left: -8px;
+        }
+        .div-4 {
+            position: relative;
+            color: #000;
+            white-space: nowrap;
+            margin: 5px 0 0 12px;
+            font: 300 22px Inter, sans-serif;
+            font-weight: bolder;
+        }
+        .div-6 {
+            background-color: rgb(201 195 195 / 20%);
+            width: 500px;
+            margin: 10px 10px 10px 20px;
+            padding: 30px 30px 0px 30px;
+        }
+        @media (max-width: 620px) {
+            .div-6 {
+                width: 95%;
+                margin: 10px;
+            }
+        }
+        .div-7 {
+            color: #000;
+            align-self: stretch;
+            font: 600 16px Inter, sans-serif;
+        }
+        .div-8 {
+            color: #000;
+            align-self: stretch;
+            margin-top: 17px;
+            font: 300 13px/18px Inter, sans-serif;
+        }
+        .div-10 {
+            display: flex;
+            margin-top: 18px;
+            justify-content: space-between;
+            gap: 17px;
+        }
+        .div-11 {
+            color: #000;
+            align-self: start;
+            white-space: nowrap;
+            font: 300 12px/135.1% Inter, sans-serif;
+        }
+        @media (max-width: 991px) {
+            .div-11 {
+                white-space: initial;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<div class="div">
+    <div class="div-2">
+        <div class="div-3">
+            <img loading="lazy" srcset="https://skyshop.royalairmaroc.com/skyimgs/images/LogoRAM.png" class="img-2" />
+            <div class="div-4">Venga</div>
+        </div>
+        <div class="div-6">
+            <div class="div-7">Hi <span th:text="${username}">Younes</span>,</div>
+            <div class="div-8">
+                For your security, please use the following One-Time Password (OTP) to <span th:text="${actionText}">update your personal information</span> :
+            </div>
+            <div class="div-10" style="margin-left: 30px">
+                <div class="div-11">Here your OTP Code :
+                    <strong><span th:text="${otpCode}"> mde4dadzd4 </span></strong>
+                </div>
+            </div>
+            <div class="div-8">
+               Regards,
+            </div>
+            <div class="div-8">
+                Royal Air Maroc Team
+            </div>
+            <div class="div-8">
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

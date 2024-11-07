@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog classpath:/liquibase/config/dbchangelog-4.6.xsd">
+
+    <changeSet author="A.lahlib" id="delete collaborateur duplicated">
+        <preConditions onFail="CONTINUE">
+            <sqlCheck expectedResult= "2">
+                SELECT COUNT(*) FROM collaborateur WHERE id IN ('1985', '1984')
+            </sqlCheck>
+        </preConditions>
+        <delete tableName="collaborateur">
+            <where>id IN ('1985', '1984')</where>
+        </delete>
+
+    </changeSet>
+
+</databaseChangeLog>

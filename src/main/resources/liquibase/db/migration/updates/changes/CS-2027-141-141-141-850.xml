@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog classpath:/liquibase/config/dbchangelog-4.6.xsd">
+
+    <changeSet author="A.Lahlib" id="drop_old_view_journal_Rapprochement">
+        <sql>
+            DROP MATERIALIZED VIEW IF EXISTS journal_rapprochement_view;
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

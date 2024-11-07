@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog classpath:/liquibase/config/dbchangelog-4.6.xsd">
+
+    <changeSet id="add-foreign-key-origine-emission-entite-origine-emission" author="A.LAHLIB">
+        <addForeignKeyConstraint
+                baseTableName="origine_emission_entite"
+                baseColumnNames="origine_emission_id"
+                constraintName="FK_OrigineEmissionEntite_OrigineEmission"
+                referencedTableName="origine_emission"
+                referencedColumnNames="id"
+                onDelete="CASCADE"
+                onUpdate="CASCADE"
+        />
+    </changeSet>
+
+    <changeSet id="add-foreign-key-origine-emission-entite-entite" author="A.LAHLIB">
+        <addForeignKeyConstraint
+                baseTableName="origine_emission_entite"
+                baseColumnNames="entite_id"
+                constraintName="FK_OrigineEmissionEntite_Entite_v"
+                referencedTableName="entite"
+                referencedColumnNames="id"
+                onDelete="CASCADE"
+                onUpdate="CASCADE"
+        />
+    </changeSet>
+
+
+</databaseChangeLog>

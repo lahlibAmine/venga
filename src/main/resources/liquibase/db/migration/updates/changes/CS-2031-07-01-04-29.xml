@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog classpath:/liquibase/config/dbchangelog-4.6.xsd">
+
+    <changeSet author="A.LAHLIB" id="add codeIataVente recette">
+        <addColumn tableName="recette_brute">
+            <column name="codeiatavente"
+                    type="VARCHAR(64)"/>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog classpath:/liquibase/config/dbchangelog-4.6.xsd">
+
+    <changeSet author="A.lahlib" id="create_View_Emission">
+        <sql> create MATERIALIZED  VIEW export_emission_view AS
+        select ROW_NUMBER() OVER (ORDER BY r.num_billet) AS id,c.id as collaborateur_id , v.num_billet ,v.nbr_coupon ,v.office_id ,v.pnr , c.nom as nom_collaborateur,c.signature ,
+               e.nom as nom_entite, o.debit , v.statut_vente , r.cie_vol ,r.num_coupon ,
+               r.date_transport ,r.escale_depart ,r.escale_arrivee ,r.classe_reservation ,
+               r.montant_brut ,e.id as entite_id, c.categorie,v.date_emission , v.codeiata ,v.motif as motif_vente , r.motif as motif_recette from vente v
+                                                                                                                                                       left join recette_brute r on r.num_billet  = v.num_billet
+                                                                                                                                                       left join opperation o on o.recette_id = r.id
+                                                                                                                                                       INNER join collaborateur c on c.id = v.collaborateur_id
+                                                                                                                                                       left join entite e on e.id  = c.entite_id  order by v.num_billet
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>
